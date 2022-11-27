@@ -1,1 +1,15 @@
-<p>phone-list works!</p>
+<p>Phone List</p>
+<table>
+    <th>Name</th>
+    <th>Size</th>
+    <th>Select section</th>
+    <tr *ngFor="let onePhone of phoneList">
+        <td>{{onePhone.name}}</td>
+        <td>{{onePhone.size}}</td>
+        <td>
+            <button (click)="WhenAphoneIsSelected(onePhone)">
+                select a phone
+            </button>
+        </td>
+    </tr>
+</table>

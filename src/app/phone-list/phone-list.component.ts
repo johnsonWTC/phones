@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { phone } from '../phone/phone.component';
 
 @Component({
   selector: 'app-phone-list',
@@ -9,7 +11,14 @@ export class PhoneListComponent implements OnInit {
 
   constructor() { }
 
+
+  @Input() phoneList : phone[] = [];
+  @Output() selectedPhone = new EventEmitter<phone>()
   ngOnInit(): void {
+  }
+
+  WhenAphoneIsSelected(phone:phone){
+    this.selectedPhone.emit(phone);
   }
 
 }
